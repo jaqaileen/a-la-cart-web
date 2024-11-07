@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'ABC Diatype'; /* You can name it anything you like */
+    src: url('../assets/ABCDiatype-Medium-Trial.otf') format('opentype');
+    font-weight: normal; /* Adjust if your font has different weights */
+    font-style: normal; /* Adjust if your font has different styles */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'ABC Diatype', sans-serif;
+    background: linear-gradient(to right, #ad1515, #ebe652, #5fd465, #232db0, #8227b0);
+    color: #ffffff;
+}
+
+.navbar {
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    top: 3%;
+    z-index: 1000;
+  }
+  
+  /* .navbar img {
+    height: auto;
+    width: auto;
+  } */
+  
+  .menu {
+    height: auto;
+    width: 75%;
+    cursor: pointer;
+  }
+  
+  .a-la-cart {
+    padding-left: 10%;
+    width: 80%; /* Explicitly set width */
+    height: auto; /* Allow height to adjust proportionally */
+    cursor: pointer;
+  }
+  
+  .cart {
+    height: auto;
+    width: 2.5%;
+    cursor: pointer;
+  }
+
+.menu-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #F7F484;
+    width: 200px;
+    text-align: center;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 15px;
+    color: #882766;
+    font-family: 'ABC Diatype', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: left;
+}
+
+.dropdown-menu a:hover {
+    background-color: #e0d96c;
+}
+
+.container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.product-grid {
+    padding-top: 8%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background: white;
+    width: 29vw;
+    transition: transform 0.2s;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.description {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 16px;
+    color: #28a745;
+}
+
+footer {
+    padding-top: 33%; /* Padding at the top */
+    text-align: center;
+    font-size: 15px;
+    flex-shrink: 0; 
+}

@@ -1,0 +1,390 @@
+@font-face {
+  font-family: 'ABC Diatype'; /* You can name it anything you like */
+  src: url('../assets/ABCDiatype-Medium-Trial.otf') format('opentype');
+  font-weight: normal; /* Adjust if your font has different weights */
+  font-style: normal; /* Adjust if your font has different styles */
+}
+
+@font-face {
+  font-family: 'Redaction35';
+  src: url('../assets/Redaction35Italicweb.otf') format('opentype');
+  font-weight: normal; 
+  font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background: linear-gradient(
+        180deg, 
+        #56a65f 0.2%, 
+        #ffffff 40%, 
+        #e86da0 90%, 
+        #e9554d 100%
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* This ensures the gradient stays fixed when scrolling */
+    min-height: 140vh;
+}
+
+.navbar {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  top: 3%;
+  z-index: 1000;
+}
+
+/* .navbar img {
+  height: auto;
+  width: auto;
+} */
+
+.menu {
+  height: auto;
+  width: 75%;
+  cursor: pointer;
+}
+
+.a-la-cart {
+  padding-left: 10%;
+  width: 80%; /* Explicitly set width */
+  height: auto; /* Allow height to adjust proportionally */
+  cursor: pointer;
+}
+
+.cart {
+  height: auto;
+  width: 2.5%;
+  cursor: pointer;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #F7F484;
+  width: 200px;
+  text-align: center;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 15px;
+  color: #882766;
+  font-family: 'ABC Diatype', sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: left;
+}
+
+.dropdown-menu a:hover {
+  background-color: #e0d96c;
+}
+
+.book-wrapper {
+  width: 395px;
+  height: 539px;
+  position: relative;
+}
+
+.book-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.book-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(./pages/cover.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.book-left {
+  position: absolute;
+  width: 40px;
+  left: -20px;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.book-front:before {
+  content: "";
+  width: 3px;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 0 3px rgba(255, 255, 255, 0.2);
+}
+
+.side {
+  position: absolute;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.side .cover {
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 35%;
+}
+
+/* ----------------- */
+
+.book {
+  transition: opacity 0.4s 0.2s;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: calc(50%);
+  transform: translate(-51%, -5%);
+  perspective: 250vw;
+}
+
+.page {
+  width: 395px;
+  height: 539px;
+  background-color: #111111;
+  float: left;
+  margin-bottom: 0.5em;
+  background: left top no-repeat;
+  background-size: cover;
+}
+
+.page:nth-child(even) {
+  clear: both;
+}
+
+.book .pages {
+  width: 790px;
+  height: 539px;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.book .page {
+  float: none;
+  clear: none;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 395px;
+  height: 539px;
+  transform-origin: 0 0;
+  transition: transform 1s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  user-select: none;
+  background-color: e18ab1;
+}
+
+.book .page:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* background: rgba(0, 0, 0, 0);
+  transition: background 0.7s; */
+  z-index: 2;
+}
+
+.book .page:nth-child(odd) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+  right: 0;
+  /* background-image: linear-gradient(to right, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, 0) 10%); */
+}
+
+.book .page:nth-child(odd):hover {
+  transform: rotateY(-15deg);
+}
+
+.book .page:nth-child(odd):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .page:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.book .page:nth-child(even) {
+  pointer-events: none;
+  transform: rotateY(180deg);
+  transform-origin: 100% 0;
+  left: 0;
+  border-color: black;
+  /* background-image: linear-gradient(to left, rgba(0, 0, 0, .12) 0%, rgba(0, 0, 0, 0) 10%); */
+}
+
+.book .page:nth-child(even):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.grabbing {
+  transition: none;
+}
+
+.flip-animation {
+  animation: flip 1s ease-in-out;
+}
+
+.book .page.flipped:nth-child(odd) {
+  pointer-events: none;
+  transform: rotateY(-180deg);
+}
+
+.book .page.flipped:nth-child(odd):before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.flipped:nth-child(even) {
+  pointer-events: all;
+  transform: rotateY(0deg);
+}
+
+.book .page.flipped:nth-child(even):hover {
+  transform: rotateY(15deg);
+}
+
+.book .page.flipped:nth-child(even):hover:before {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.book .page.flipped:nth-child(even):before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.page:nth-child(odd) {
+  background-position: right top;
+}
+
+.page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-container {
+    width: 55vw;
+    color: #ffffff;
+    position: absolute;
+    top: calc(78% + 5%);
+}
+
+.text-container h1 {
+  font-family: 'Redaction35', sans-serif;
+  text-align: right;
+    font-size: 45px;
+    margin: 0;
+    padding: 0;
+}
+
+.text-container p {
+  font-family: 'ABC Diatype', sans-serif;
+  text-align: left;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.rectangle {
+  height: auto;
+  width: 13%;
+  background-repeat: no-repeat; 
+  background-position: center;
+  position: absolute;
+  left: 64.5%; 
+  top: calc(93% + 23%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.rectangle img {
+  width: 100%;  /* Makes the image take up the full width of the container */
+  height: auto;  /* Ensures the height scales automatically to maintain aspect ratio */
+}
+
+.rectangle p {
+  font-style: italic; 
+  position: absolute;
+  font-family: 'ABC Diatype', sans-serif; 
+  color: #882766; 
+  font-size: 1.2em;
+  margin: 0;
+  z-index: 20;
+}
+
+#click-counter {
+  font-family: 'ABC Diatype', sans-serif;
+  font-size: 1.2em;
+  position: fixed;
+  top: 3.3%;
+  right: 4.3%;
+  color: #882766;
+  z-index: 2000; 
+  display: none;
+  text-align: center; 
+
+  width: 25px;          /* Width of the circle */
+  height: 25px;         /* Height of the circle (same as width to keep it a perfect circle) */
+  background-color: #F7F484;
+  display: flex;        /* Flexbox to center the text */
+  align-items: center;  /* Vertically centers the text */
+  justify-content: center;  /* Horizontally centers the text */
+  border-radius: 50%;   /* Makes the container a circle */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+footer {
+  position: absolute;
+  font-family: 'ABC Diatype', sans-serif;
+  color: #ffffff;
+  text-align: center;
+  font-size: 15px;
+  flex-shrink: 0; 
+  z-index: 1000;
+  padding-bottom: 3%;
+  top: calc(103% + 28%);
+}
+
+
+  
+

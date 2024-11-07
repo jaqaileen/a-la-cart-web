@@ -1,0 +1,288 @@
+@font-face {
+    font-family: 'Redaction35';
+    src: url('../assets/Redaction35\ copy.otf') format('opentype'),
+}
+
+@font-face {
+    font-family: 'ABC Diatype'; /* You can name it anything you like */
+    src: url('../assets/ABCDiatype-Medium-Trial.otf') format('opentype');
+    font-weight: normal; /* Adjust if your font has different weights */
+    font-style: normal; /* Adjust if your font has different styles */
+}
+
+
+body{
+    font-family: 'Redaction35', sans-serif;
+    margin: 0;
+}
+
+#backgroundContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#insideImage {
+    position: absolute; 
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+#backgroundImage {
+    position: absolute; 
+    width: 173vw;
+    height: 173vh;
+    top: -47%; 
+    left: -25%; 
+    object-fit: cover;
+}
+#b1 {
+    left: 10vw;
+    top: 42vh;
+    cursor: grab;
+    width: 20vh;
+}
+
+#b2 {
+    left: 46vw;
+    top: 29vh;
+    cursor: grab;
+    width: 46vh;
+}
+
+#b3 {
+    left: 3vw;
+    top: 78vh;
+    cursor: grab;
+    width: 35vh;
+}
+
+#b4 {
+    left: 83vw;
+    top: 30vh;
+    cursor: grab;
+    width: 32vh;
+}
+
+#b5 {
+    left: 60vw;
+    top: 73vh;
+    cursor: grab;
+    width: 27vh;
+}
+
+#b6 {
+    left: 66vw;
+    top: 31vh;
+    cursor: grab;
+    width: 23vh;   
+}
+
+#b7 {
+    left: 75vw;
+    top: 36vh;
+    cursor: grab;
+    width: 27vh;
+}
+
+#b8 {
+    left: 30vw;
+    top: 28vh;
+    cursor: grab;
+    width: 36vh;
+}
+
+#b9 {
+    left: 30vw;
+    top: 75vh;
+    cursor: grab;
+    width: 52vh;
+}
+
+#b10 {
+    left: 22vw;
+    top: 70vh;
+    cursor: grab;
+    width: 30vh;
+}
+
+#b11 {
+    left: 34vw;
+    top: 52vh;
+    cursor: grab;
+    width: 32vh;
+}
+
+#b12 {
+    left: 52vw;
+    top: 57vh;
+    cursor: grab;
+    width: 12vh;
+}
+
+#b13 {
+    left: 9vw;
+    top: 55vh;
+    cursor: grab;
+    width: 25vh;
+}
+
+#b14 {
+    left: 2vw;
+    top: 33vh;
+    cursor: grab;
+    width: 10vh;
+}
+
+#b15 {
+    left: 78vw;
+    top: 78vh;
+    cursor: grab;
+    width: 32vh;
+}
+
+#b16 {
+    left: 85vw;
+    top: 52vh;
+    cursor: grab;
+    width: 23vh;
+}
+
+/* #b17 {
+    left: 23vw;
+    top: 38vh;
+    cursor: grab;
+    width: 23vh;
+} */
+
+#b18 {
+    left: 20vw;
+    top: 41vh;
+    cursor: grab;
+    width: 27vh;
+}
+
+#b19 {
+    left: 60vw;
+    top: 55vh;
+    cursor: grab;
+    width: 38vh;
+}
+
+/* #b20 {
+    left: 19vw;
+    top: 83vh;
+    cursor: grab;
+    width: 18vh;
+}
+
+#b21 {
+    left: 34vw;
+    top: 87vh;
+    cursor: grab;
+    width: 14vh;
+}
+
+#b22 {
+    left: 5vw;
+    top: 40vh;
+    cursor: grab;
+    width: 20vh;
+}
+
+#b23 {
+    left: 55vw;
+    top: 27vh;
+    cursor: grab;
+    width: 18vh;
+}
+
+#b24 {
+    left: 2vw;
+    top: 80vh;
+    cursor: grab;
+    width: 20vh;
+}
+
+#b25 {
+    left: 1vw;
+    top: 45vh;
+    cursor: grab;
+    width: 14vh;
+} */
+
+
+.dragImage {
+    position: fixed;
+    width: 10vw;
+    height: auto;
+    cursor: grab;
+}
+
+.navbar {
+    position: fixed;
+    align-items: center;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    top: 3%;
+    z-index: 1000;
+    transform: translate(5%, 3%);
+  }
+  
+  /* .navbar img {
+    height: auto;
+    width: auto;
+  } */
+  
+  .menu {
+    height: auto;
+    width: 75%;
+    cursor: pointer;
+  }
+  
+  .a-la-cart {
+    padding-left: 10%;
+    width: 70%; /* Explicitly set width */
+    height: auto; /* Allow height to adjust proportionally */
+    cursor: pointer;
+  }
+  
+  .cart {
+    height: auto;
+    width: 2.5%;
+    cursor: pointer;
+  }
+
+.menu-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #F7F484;
+    width: 200px;
+    text-align: center;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 15px;
+    color: #882766;
+    font-family: 'ABC Diatype', sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: left;
+}
+
+.dropdown-menu a:hover {
+    background-color: #e0d96c;
+}
